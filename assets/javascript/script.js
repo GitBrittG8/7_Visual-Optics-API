@@ -1,4 +1,4 @@
-$()
+$(document).ready(function() {
     var topic = [
         "Nature",
         "Assembly Line",
@@ -44,3 +44,4 @@ $()
         //Rating: the rating will be g or pg
 
         console.log("/4---------/");
+})

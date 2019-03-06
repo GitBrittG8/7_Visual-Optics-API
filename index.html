@@ -24,39 +24,54 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-12">
-                <form id="movie-form">
-                    <label for="movie-input">Search for movie!</label>
-                    <input type="text" id="movie-input">
-                    <br><br>
-                    <input id="find-movie" type="submit" value="Movie Search">
-                </form>
-            </div>
-        </div>
+        <form id="movie-form">
+            <label for="movie-input">Search for a movie</label>
+            <input type="text" id="movie-input"><br>
         
-        <div class="row">
-            <div class="col-sm-12">
-                <div id="movie-view"></div>
-            </div>
-        </div>
+            <!-- This button will trigger our AJAX call -->
+            <input id="find-movie" type="submit" value="Movie Search">
+        </form>
+          
+        <!-- We'll be dumping our JSON contents in here -->
+        <div id="movie-view"></div>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        // This .on("click") function will trigger the AJAX Call
+        $(document).on("click", "#find-movie", function () {
+            
+          
+            // event.preventDefault() can be used to prevent an event's default behavior.
+            // Here, it prevents the submit button from trying to submit a form when clicked
+            event.preventDefault();
+    
+            // Here we grab the text from the input box
+            var movie = $("#movie-input").val();
+    
+            // Here we construct our URL
+            var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+    
+            // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
+            // and display it in the div with an id of movie-view
+    
+            // ------YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY EDIT THE HTML ABOVE.
+          
+            $.ajax({
+                url: queryURL,
+                method: "GET"
 
-        <div class="row">
-            <div class="col-sm-12">
-                <div id="movie-view2"></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div id="movie-view3"></div>
-            </div>
-        </div>
-
-
-
+            }).then(function(response) {
+                $("#movie-view").text(JSON.stringify(response));
+                console.log("Secret console message: " + response)
+            });
+    
+            // -----------------------------------------------------------------------
+        
+        }); 
+        </script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
 </html>
