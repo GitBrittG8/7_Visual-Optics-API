@@ -11,9 +11,9 @@
     <script src="assets/javascript/script.js"></script>
 </head>
 <body>
-    <container>
+    <div class="container">
         <div class="row">
-            <div class="col-sm-12" id="topic-row">
+            <div class="col-sm-12" id="topic-buttons">
                 <button type="button" class="btn btn-info">Nature</button>
                 <button type="button" class="btn btn-info">Assembly Line</button>
                 <button type="button" class="btn btn-info">Chemical Reaction</button>
@@ -23,7 +23,39 @@
                 <button type="button" class="btn btn-info">Magic Eye</button>
             </div>
         </div>
-    </container>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <form id="movie-form">
+                    <label for="movie-input">Search for movie!</label>
+                    <input type="text" id="movie-input">
+                    <br><br>
+                    <input id="find-movie" type="submit" value="Movie Search">
+                </form>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="movie-view"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="movie-view2"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="movie-view3"></div>
+            </div>
+        </div>
+
+
+
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
