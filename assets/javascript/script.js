@@ -9,8 +9,8 @@ $(document).ready(function() {
         "Magic Eye", // To see Magic Eye Illusions, unfocus your eyes and look "through" the screen.
     ];
 
-    var objectURL = "http://api.giphy.com/v1/gifs/search?q=magic+eye&api_key=dc6zaTOxFJmzC";
-    
+    var objectURL = "http://api.giphy.com/v1/gifs/search?q=magic+eyeg&api_key=qOIsjLz9Eaf7IbS8C0UnGwJhPYZbrPrq&limit=10";
+
     console.log("/1---------/");
 
     $.ajax({
@@ -43,17 +43,17 @@ $(document).ready(function() {
         //Limit: it will have to display 10 gifs per page
         //Rating: the rating will be g or pg
         console.log("/3---------/");
-        $(document).on("click", "#find-movie", function () { // Trigger AJAX Call
+        $(document).on("click", "#find-giphy", function () { // Trigger AJAX Call
             event.preventDefault(); //Prevents button from submitting default form          
-            var movie = $("#movie-input").val(); // Select text from input box
-            var movieURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+            var giphy = $("#giphy-input").val(); // Select text from input box
+            var giphyURL = "http://api.giphy.com/v1/gifs/search?q=" + giphy + "g&api_key=qOIsjLz9Eaf7IbS8C0UnGwJhPYZbrPrq&limit=10"; 
 
             $.ajax({
-                url: movieURL,
+                url: giphyURL,
                 method: "GET"
 
             }).then(function(response) {
-                $("#movie-view").text(JSON.stringify(response));
+                $("#giphy-view").text(JSON.stringify(response));
                 console.log("Secret console message: " + response)
             });
         }); 
