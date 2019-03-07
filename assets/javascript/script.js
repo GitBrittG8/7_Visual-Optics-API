@@ -42,6 +42,20 @@ $(document).ready(function() {
 
         //Limit: it will have to display 10 gifs per page
         //Rating: the rating will be g or pg
+        console.log("/3---------/");
+        $(document).on("click", "#find-movie", function () { // Trigger AJAX Call
+            event.preventDefault(); //Prevents button from submitting default form          
+            var movie = $("#movie-input").val(); // Select text from input box
+            var movieURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
 
+            $.ajax({
+                url: movieURL,
+                method: "GET"
+
+            }).then(function(response) {
+                $("#movie-view").text(JSON.stringify(response));
+                console.log("Secret console message: " + response)
+            });
+        }); 
         console.log("/4---------/");
 })
