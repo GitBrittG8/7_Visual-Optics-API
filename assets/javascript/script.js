@@ -54,7 +54,7 @@ $(document).ready(function() {
 
             }).then(function(response) {
                 $("#giphy-view").text(JSON.stringify(response));
-                console.log("Secret console message: " + response)
+                console.log("JSON response: " + response)
             });
         }); 
         console.log("/4---------/");
