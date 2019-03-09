@@ -26,4 +26,15 @@ $(document).ready(function() {
             console.log("User Input: " + userInput);
         });
     });
+
+    function renderButtons() {
+        for (var i = 0; i < topics.length; i++) {
+            var a = $("<button>");
+            a.addClass("giphy");
+            a.attr("data-name", topics[i]);
+            a.text(topics[i]);
+            $("#topic-buttons").append(a);
+        }
+    }
+    renderButtons();
 })
