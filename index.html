@@ -13,27 +13,20 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12" id="topic-buttons">
-                <button type="button" class="btn btn-info">Nature</button>
-                <button type="button" class="btn btn-info">Assembly Line</button>
-                <button type="button" class="btn btn-info">Chemical Reaction</button>
-                <button type="button" class="btn btn-info">Wooden Automaton</button>
-                <button type="button" class="btn btn-info">Continuous Loop</button>
-                <button type="button" class="btn btn-info">Optical Illusions</button>
-                <button type="button" class="btn btn-info">Magic Eye</button>
-            </div>
+            <div class="col-sm-12" id="topic-buttons"></div>
         </div>
         <br><br>
-        <form id="giphy-form">
-            <label for="giphy-input">Search for a Giphy!</label>
-            <input type="text" id="giphy-input"><br>
+        <form id="giph-form">
+            <label for="user-input">Search for a Giphy!</label>
+            <input type="text" id="user-input"><br>
             <br><br>
 
-            <input id="find-giphy" type="submit" value="Giphy Search"> <!-- Trigger AJAX call -->
+            <input id="find-giph" type="submit" value="Find"> <!-- Button click triggers AJAX call -->
+            <input id="add-giph" type="submit"  value="Add">       
         </form>
         <br><br>
 
-        <div id="giphy-view"></div> <!-- Display JSON contents here -->
+        <div id="giph-view"></div>
     
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
