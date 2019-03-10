@@ -11,8 +11,17 @@ $(document).ready(function() {
     ];
     
     /// FUNCTIONS
+    
+    function addDynamicButton(buttonText) {
+        var button = $("<button>");
+        button.text(buttonText)
+        $("#topic-buttons").append(button);
+    }
+    // Display giphy
+    
+
     function renderButtons() {
-        $("#buttons-view").empty();
+        $("#topic-buttons").empty();
         for (var i = 0; i < topics.length; i++) {
             var a = $("<button>");
             a.addClass("giphy");
@@ -21,32 +30,16 @@ $(document).ready(function() {
             $("#topic-buttons").append(a);
         }
     }
-
-    function alertGiphyTopic() {
-        var giphyTopic = $(this).attr("data-topic");
-        alert(giphyTopic);
-    }
     
 
     /// JQUERY
-    // "FIND" Button
-    $("#find-giph").on("click", function(event) {
+    // "ADD" Button
+
+    $("#add-giph").on("click", function(event) {
         event.preventDefault();
         var userInput = $("#user-input").val().trim();
-        var giphyURL = "http://api.giphy.com/v1/gifs/search?q=" + userInput + "&api_key=dc6zaTOxFJmzC&limit=5&rating=pg-13";
-
-        // Display User's search in giphy-view
-        $.ajax({
-            url: giphyURL,
-            method: "GET"
-        }).then(function(response) {
-            $("#giph-view").text(JSON.stringify(response));
-            console.log("User Input: " + userInput);
-        });
+        topics.push(userInput)
+        renderButtons();
     });
-
-    //Adds event listener to all elements with .giphy class
-    $(document).on("click", ".giphy", alertGiphyTopic);
-
     renderButtons();
 })
