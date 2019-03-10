@@ -11,14 +11,6 @@ $(document).ready(function() {
     ];
     
     /// FUNCTIONS
-    
-    function addDynamicButton(buttonText) {
-        var button = $("<button>");
-        button.text(buttonText)
-        $("#topic-buttons").append(button);
-    }
-    // Display giphy
-    
 
     function renderButtons() {
         $("#topic-buttons").empty();
@@ -31,6 +23,16 @@ $(document).ready(function() {
         }
     }
     
+    function displayGiphy() {
+        var giphy = $(this).attr("data-topic");
+        var giphyURL = "http://api.giphy.com/v1/gifs/search?q=" + giphy + "g&api_key=qOIsjLz9Eaf7IbS8C0UnGwJhPYZbrPrq&rating=pg-13&limit=10";
+        $.ajax({
+            url: giphyURL,
+            method: "GET"
+          }).then(function(response) {
+            $("#giph-view").text(JSON.stringify(response));
+          });
+    }
 
     /// JQUERY
     // "ADD" Button
@@ -41,5 +43,8 @@ $(document).ready(function() {
         topics.push(userInput)
         renderButtons();
     });
+
+    $(document).on("click", ".giphy", displayGiphy);
+
     renderButtons();
 })
