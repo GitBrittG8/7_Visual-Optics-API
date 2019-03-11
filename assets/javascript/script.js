@@ -30,7 +30,11 @@ $(document).ready(function() {
             url: giphyURL,
             method: "GET"
           }).then(function(response) {
+            var giphDiv = $("<div class='giph'>");
             $("#giph-view").text(JSON.stringify(response));
+            var image = $("<img>").attr("src", giphyURL);
+            giphDiv.append(image);
+            $("#giph-view").prepend(movieDiv);
           });
     }
 
@@ -48,3 +52,6 @@ $(document).ready(function() {
 
     renderButtons();
 })
+
+/// Final Step is to get the 
+/// response translated to the working giphy.
