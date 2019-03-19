@@ -7,7 +7,7 @@ $(document).ready(function() {
         "Wooden Automaton", 
         "Continuous Loop",
         "Optical Illusion",
-        "Magic Eye", // To see Magic Eye Illusions, unfocus your eyes and look "through" the screen.
+        "Magic Eye", 
     ];
     
     /// FUNCTIONS
@@ -30,13 +30,20 @@ $(document).ready(function() {
             url: giphyURL,
             method: "GET"
           }).then(function(response) {
+
+            var results = response.data;
+            for (var i = 0; i < results.length; i++) {
             var giphDiv = $("<div class='giph'>");
-            $("#giph-view").text(JSON.stringify(response));
-            var image = $("<img>").attr("src", giphyURL);
+            
+            var url = response.data[i].images.fixed_height.url; // Link to specific giph aspects in Object
+            var image = $("<img>").attr("src", url);
+            
             giphDiv.append(image);
-            $("#giph-view").prepend(movieDiv);
-          });
+            $("#giph-view").prepend(giphDiv);
+            }
+        });
     }
+    
 
     /// JQUERY
     // "ADD" Button
@@ -49,9 +56,10 @@ $(document).ready(function() {
     });
 
     $(document).on("click", ".giphy", displayGiphy);
+    
 
     renderButtons();
 })
+debugger;
 
-/// Final Step is to get the 
-/// response translated to the working giphy.
+// Next step is to insert For-Loop to append 10 Giphs to giph-view.
